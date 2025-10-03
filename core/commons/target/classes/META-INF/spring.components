@@ -1,0 +1,11 @@
+org.cmdbuild.audit.RequestDataImpl=org.cmdbuild.dao.orm.annotations.CardMapping
+org.cmdbuild.cache.LocalCacheServiceImpl=org.springframework.stereotype.Component
+org.cmdbuild.debuginfo.InstanceInfoServiceImpl=org.springframework.stereotype.Component
+org.cmdbuild.email.beans.EmailImpl=org.cmdbuild.dao.orm.annotations.CardMapping
+org.cmdbuild.eventbus.EventBusServiceImpl=org.springframework.stereotype.Component
+org.cmdbuild.lookup.LookupTypeImpl=org.cmdbuild.dao.orm.annotations.CardMapping
+org.cmdbuild.requestcontext.RequestContextServiceImpl=org.springframework.stereotype.Component
+org.cmdbuild.spring.SpringIntegrationUtils=org.springframework.stereotype.Component
+org.cmdbuild.systemplugin.SystemPluginConfiguration=org.springframework.stereotype.Component
+org.cmdbuild.systemplugin.SystemPluginServiceImpl=org.springframework.stereotype.Component
+org.cmdbuild.systemplugin.UploadSystemPluginServiceImpl=org.springframework.stereotype.Component

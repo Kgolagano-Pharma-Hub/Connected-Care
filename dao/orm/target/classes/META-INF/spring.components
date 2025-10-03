@@ -1,0 +1,3 @@
+org.cmdbuild.dao.orm.services.CardMapperConfigRepositoryImpl=org.springframework.stereotype.Component
+org.cmdbuild.dao.orm.services.CardMapperLoader=org.springframework.stereotype.Component
+org.cmdbuild.dao.orm.services.CardMapperServiceImpl=org.springframework.stereotype.Component

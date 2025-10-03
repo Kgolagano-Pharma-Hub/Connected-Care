@@ -1,0 +1,8 @@
+org\cmdbuild\dao\driver\postgres\test\SystemToSqlExprTest.class
+org\cmdbuild\dao\driver\postgres\test\SqlTypeConversionTest.class
+org\cmdbuild\dao\driver\postgres\test\QueryProcessingTest.class
+org\cmdbuild\dao\driver\postgres\test\CommentUtilsTest.class
+org\cmdbuild\dao\driver\postgres\test\QueryBuilderUtilsTest.class
+org\cmdbuild\dao\driver\postgres\test\QueryBuilderServiceTest.class
+org\cmdbuild\dao\driver\postgres\test\SqlExprConversionTest.class
+org\cmdbuild\dao\driver\postgres\test\QuotingTest.class

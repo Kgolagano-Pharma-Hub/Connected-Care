@@ -1,0 +1,2 @@
+org.cmdbuild.utils.ws3.test.Ws3RestTest$MyOtherServiceBean=jakarta.ws.rs.Path
+org.cmdbuild.utils.ws3.test.Ws3RestTest$MyServiceBean=jakarta.ws.rs.Path

@@ -1,0 +1,5 @@
+org\cmdbuild\utils\script\js\test\JsScriptTest.class
+org\cmdbuild\utils\script\python\test\PythonScriptExecutionTest.class
+org\cmdbuild\utils\groovy\test\beans\MyTestBean.class
+org\cmdbuild\utils\script\groovy\test\CustomClassloaderTest.class
+org\cmdbuild\utils\script\groovy\test\GroovyScriptExecutionTest.class

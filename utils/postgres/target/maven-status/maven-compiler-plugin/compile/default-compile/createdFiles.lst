@@ -1,0 +1,12 @@
+org\cmdbuild\utils\postgres\PostgresHelperConfigImpl$PostgresHelperBuilder.class
+org\cmdbuild\utils\postgres\PgVersionUtils$PostgresInfo.class
+org\cmdbuild\utils\postgres\PostgresHelper.class
+org\cmdbuild\utils\postgres\PgLibsUtils$PgLibInfo.class
+org\cmdbuild\utils\postgres\PostgresHelperImpl.class
+org\cmdbuild\utils\postgres\PgLibsUtils$1.class
+org\cmdbuild\utils\postgres\PostgresHelperConfigImpl.class
+org\cmdbuild\utils\postgres\PostgresHelperConfig.class
+org\cmdbuild\utils\postgres\PostgresHelperImpl$PostgresOperation.class
+org\cmdbuild\utils\postgres\PgLibsUtils.class
+org\cmdbuild\utils\postgres\PostgresUtils.class
+org\cmdbuild\utils\postgres\PgVersionUtils.class

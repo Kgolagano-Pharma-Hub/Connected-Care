@@ -1,0 +1,14 @@
+org\cmdbuild\dao\beans\AbstractResultSet.class
+org\cmdbuild\dao\beans\CardImplTest.class
+org\cmdbuild\dao\test\PermissionProcessingTest.class
+org\cmdbuild\dao\beans\LookupValueMatcher.class
+org\cmdbuild\dao\beans\MyPostresArray$1.class
+org\cmdbuild\dao\test\MetadataBeansTest.class
+org\cmdbuild\dao\beans\MyPostresArray.class
+org\cmdbuild\dao\utils\test\AttributeFilterProcessorTest.class
+org\cmdbuild\dao\test\LinkAttributeTypeTest.class
+org\cmdbuild\dao\test\IpAddressAttributeTypeTest.class
+org\cmdbuild\dao\test\LookupBeanTest.class
+org\cmdbuild\dao\beans\PostgresArray.class
+org\cmdbuild\dao\beans\DomainImplTest.class
+org\cmdbuild\dao\test\MetadataBeansTest$1.class

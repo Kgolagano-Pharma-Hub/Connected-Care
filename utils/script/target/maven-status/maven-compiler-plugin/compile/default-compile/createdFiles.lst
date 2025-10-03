@@ -1,0 +1,13 @@
+org\cmdbuild\utils\script\CmScriptUtils.class
+org\cmdbuild\utils\script\python\PythonScriptService.class
+org\cmdbuild\utils\script\groovy\GroovyScriptExecutorImpl.class
+org\cmdbuild\utils\script\python\PythonScriptExecutorImpl.class
+org\cmdbuild\utils\script\python\PythonScriptException.class
+org\cmdbuild\utils\script\python\PythonScriptExecutor.class
+org\cmdbuild\utils\script\ScriptType.class
+org\cmdbuild\utils\script\groovy\GroovyScriptException.class
+org\cmdbuild\utils\script\groovy\SimpleGroovyScriptServiceImpl.class
+org\cmdbuild\utils\script\beanshell\BeanshellScriptExecutor.class
+org\cmdbuild\utils\script\groovy\GroovyScriptService.class
+org\cmdbuild\utils\script\js\CmJsUtils.class
+org\cmdbuild\utils\script\groovy\GroovyScriptExecutor.class

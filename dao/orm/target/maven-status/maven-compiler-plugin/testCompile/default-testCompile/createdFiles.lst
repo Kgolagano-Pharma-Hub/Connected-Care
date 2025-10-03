@@ -1,0 +1,9 @@
+org\cmdbuild\dao\orm\test\beans\MyEnum.class
+org\cmdbuild\dao\orm\test\beans\RequestData.class
+META-INF\spring.components
+org\cmdbuild\dao\orm\test\CardMapperLoaderTest.class
+org\cmdbuild\dao\orm\test\beans\JsonBeanImpl.class
+org\cmdbuild\dao\orm\test\beans\SimpleRequestData$RequestDataBuilder.class
+org\cmdbuild\dao\orm\test\CardMapperTest.class
+org\cmdbuild\dao\orm\test\beans\SimpleRequestData.class
+org\cmdbuild\dao\orm\test\beans\JsonBeanInterface.class

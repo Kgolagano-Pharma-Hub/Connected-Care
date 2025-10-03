@@ -1,0 +1,1 @@
+org.cmdbuild.dao.user.UserDaoHelperServiceImpl=org.springframework.stereotype.Component

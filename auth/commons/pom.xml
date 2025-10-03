@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.cmdbuild</groupId>
+        <artifactId>cmdbuild-auth-main</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <artifactId>cmdbuild-auth-commons</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>cmdbuild-core-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>3.0.21</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>cmdbuild-utils-privileges</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>cm-role-privilege-autorities</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <scripts>
+                                <script><![CDATA[
+                        import java.nio.file.*
+
+
+                        //File source = new File(project.basedir, "../../core/commons/src/main/java/org/cmdbuild/auth/role/RolePrivilege.java")
+                        //File target = new File(project.build.sourceDirectory, "org/cmdbuild/auth/role/RolePrivilegeAuthority.java")
+
+                        //def source = new File("${project.basedir}/../../core/commons/src/main/java/org/cmdbuild/auth/role/RolePrivilege.java")
+                        //def target = new File("${project.build.sourceDirectory}/org/cmdbuild/auth/role/RolePrivilegeAuthority.java")
+
+                        File source = new File(new File(project.basedir.toString()), "../../core/commons/src/main/java/org/cmdbuild/auth/role/RolePrivilege.java")
+                        File target = new File(new File(project.build.sourceDirectory), "org/cmdbuild/auth/role/RolePrivilegeAuthority.java")
+
+
+
+                        // Ensure directories exist
+                        target.parentFile.mkdirs()
+
+                        StringWriter writer = new StringWriter()
+
+                        // --- 2. If target already exists, preserve header up to BEGIN marker ---
+                        if (target.exists()) {
+                            def lines = target.readLines().iterator()
+                            String line
+                            while (lines.hasNext() && !(line = lines.next()).matches('\\s*/[*]\\s*BEGIN.*')) {
+                                writer.append(line + '\n')
+                            }
+                            // Keep the BEGIN line
+                            if (line != null) writer.append(line + '\n')
+                        } else {
+                            // New file: create BEGIN marker
+                            writer.append("/* BEGIN RolePrivilegeAuthority */\n")
+                        }
+
+                        // --- 3. Inject constants based on RolePrivilege.java ---
+                        source.eachLine { String l ->
+                            if (l.matches('\\s*RP_[A-Z_]+,?\\s*')) {
+                                writer.append(l.replaceFirst(/\s*RP_([A-Z_]+),?\s*/,
+                                'public static final String $1_AUTHORITY = "$1";\n'))
+                            }
+
+                        }
+
+                        // --- 4. Close with END marker, preserve footer if file existed ---
+                        if (target.exists()) {
+                            def lines = target.readLines().iterator()
+                            String line
+                            // Skip until END
+                            while (lines.hasNext() && !(line = lines.next()).matches('\\s*/[*]\\s*END.*')) { }
+                            if (line != null) writer.append(line + '\n')
+
+                            // Copy remainder after END
+                            while (lines.hasNext()) {
+                                writer.append(lines.next() + '\n')
+                            }
+                        } else {
+                            writer.append("/* END RolePrivilegeAuthority */\n")
+                        }
+
+                        // --- 5. Write new content ---
+                        target.text = writer.toString()
+                        println "[INFO] Generated: " + target
+                    ]]></script>
+                            </scripts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,7 @@
+
+#db.url=postgresql://connected_care_db_user:O5dsKVo1IWDoBdL2i1118b9yTLupVXE2@dpg-d3d1l156ubrc73f7g7tg-a.frankfurt-postgres.render.com/connected_care_db
+#db.username=connected_care_db_user
+#db.password=cmdbuild
+#db.admin.username=postgres
+#db.admin.password=postgres
+

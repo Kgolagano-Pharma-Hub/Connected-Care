@@ -1,0 +1,5 @@
+org\cmdbuild\dao\user\UserDaoHelperService.class
+org\cmdbuild\dao\user\UserDaoHelperServiceImpl.class
+org\cmdbuild\dao\user\UserDaoServiceBase.class
+META-INF\spring.components
+org\cmdbuild\dao\user\UserDaoService.class

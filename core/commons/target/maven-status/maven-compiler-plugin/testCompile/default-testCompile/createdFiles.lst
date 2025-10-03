@@ -1,0 +1,14 @@
+org\cmdbuild\utils\TempDataSourceTest$Context.class
+org\cmdbuild\utils\PagedElementsUtilsTest.class
+org\cmdbuild\requestcontext\test\RequestContextTest.class
+org\cmdbuild\notification\NotificationProviderAdapterTest.class
+org\cmdbuild\workflow\type\test\LegacyWorkflowTypeDeserializationTest.class
+org\cmdbuild\email\EmailAddressTest.class
+org\cmdbuild\utils\CmSorterUtilsTest.class
+org\cmdbuild\common\beans\test\CardIdAndClassNameTest.class
+org\cmdbuild\utils\RequestDataUtilsTest.class
+org\cmdbuild\utils\TempDataSourceTest.class
+org\cmdbuild\notification\NotificationDataMatcher.class
+org\cmdbuild\email\EmailContentTest.class
+org\cmdbuild\fault\test\FaultUtilsTest.class
+org\cmdbuild\data\filter\test\CmdbFilterTest.class
