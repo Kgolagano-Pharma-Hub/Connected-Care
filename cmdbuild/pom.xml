@@ -241,7 +241,7 @@
                         </goals>
                         <configuration> 
                             <source>
-                                File file = new File("${project.build.directory}/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/config/default_config.properties");
+                                File file = new File(new File("${project.build.directory}/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/config/default_config.properties"))
                                 file.parentFile.mkdirs()
                                 file.append '\n'
                                 System.properties.each{ k, v ->  if ( k.startsWith('org.cmdbuild.build.config.') ) { file.append k.replaceFirst('org.cmdbuild.build.config.','org.cmdbuild.') + '=' + v + '\n' }}
@@ -257,7 +257,7 @@
                         </goals>
                         <configuration> 
                             <source>
-                                File file = new File("${project.build.directory}/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/version.properties");
+                                File file = new File(new File("${project.build.directory}/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/version.properties"))
                                 file.parentFile.mkdirs()
                                 file.append '\n'
                                 file.append 'org.cmdbuild.version=${revision}'
@@ -282,7 +282,7 @@
                                 proc.consumeProcessOutput(sout, serr)
                                 proc.waitFor()
                                 
-                                File file = new File("${project.build.directory}/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/fixed_issues_list.txt");
+                                File file = new File(new File("${project.build.directory}/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/fixed_issues_list.txt"))
                                 file.parentFile.mkdirs()
                                 file.append sout 
                             </source>
@@ -296,7 +296,7 @@
                         </goals>
                         <configuration> 
                             <source>
-                                File source = new File("${project.build.directory}/${project.build.finalName}/WEB-INF/lib/systemlibs.list.raw");
+                                File source = new File(new File("${project.build.directory}/${project.build.finalName}/WEB-INF/lib/systemlibs.list.raw"))
                                 def list = []
                                 println "processing libs"
                                 source.eachLine { String line ->

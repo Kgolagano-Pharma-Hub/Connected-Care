@@ -245,16 +245,18 @@
                 <artifactId>logback-classic</artifactId>
                 <version>1.5.3</version>
             </dependency>
-            <dependency>
-                <groupId>com.onelogin</groupId>
-                <artifactId>java-saml</artifactId>
-                <version>2.9.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.onelogin</groupId>
-                <artifactId>java-saml-core</artifactId>
-                <version>2.9.0</version>
-            </dependency>
+
+<!--            These are no longer neccessary because we stubbed it out with our own thing-->
+<!--            <dependency>-->
+<!--                <groupId>com.onelogin</groupId>-->
+<!--                <artifactId>java-saml</artifactId>-->
+<!--                <version>2.9.0</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>com.onelogin</groupId>-->
+<!--                <artifactId>java-saml-core</artifactId>-->
+<!--                <version>2.9.0</version>-->
+<!--            </dependency>-->
 
             <!-- QRCODE -->
             <dependency>

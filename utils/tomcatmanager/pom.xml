@@ -78,11 +78,13 @@
                         </goals>
                         <configuration> 
                             <classpathScope>runtime</classpathScope>
-                            <source><![CDATA[      
+                            <source><![CDATA[
                                 File sourceFile = org.cmdbuild.utils.io.CmIoUtils.fetchFileWithCache("${tomcat.archive.checksum}","${tomcat.archive.url}");
-                                File targetFile = new File("${project.build.directory}/classes/org/cmdbuild/utils/tomcatmanager/${tomcat.archive.filename}");
-                                targetFile << sourceFile.bytes; 
-                            ]]></source>
+                                File targetDir = new File(project.properties['project.build.directory'], "classes/org/cmdbuild/utils/tomcatmanager");
+                                File targetFile = new File(targetDir, "${tomcat.archive.filename}");
+                                targetFile << sourceFile.bytes;
+                                ]]></source>
+
                         </configuration>
                     </execution>  
                 </executions>

@@ -205,16 +205,6 @@
         <version>1.5.3</version>
       </dependency>
       <dependency>
-        <groupId>com.onelogin</groupId>
-        <artifactId>java-saml</artifactId>
-        <version>2.9.0</version>
-      </dependency>
-      <dependency>
-        <groupId>com.onelogin</groupId>
-        <artifactId>java-saml-core</artifactId>
-        <version>2.9.0</version>
-      </dependency>
-      <dependency>
         <groupId>com.google.zxing</groupId>
         <artifactId>core</artifactId>
         <version>${zxing.version}</version>

@@ -69,16 +69,6 @@
             <version>4.4.0</version>
         </dependency>
         <dependency>
-            <groupId>com.onelogin</groupId>
-            <artifactId>java-saml</artifactId>
-            <version>3.9.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.onelogin</groupId>
-            <artifactId>java-saml-core</artifactId>
-            <version>3.9.0</version>
-        </dependency>
-        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>cmdbuild-utils-script</artifactId>
             <version>${project.version}</version>
