@@ -20,7 +20,7 @@
 * Allowd possibility to handle widgets on closed process instances
 
 ### IMPROVEMENTS:
-* Upgade Sencha ExtJS to 7.0.0 gpl
+* Attempted to remove sencha for the npm version
 * Update Spring version to 6.0
 * Updated version of frontend libraries
 * Updated IFC to XKT converter

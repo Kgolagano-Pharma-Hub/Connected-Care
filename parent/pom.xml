@@ -71,6 +71,11 @@
         <maven.build.timestamp.format>yyyy-MMM-dd HH:mm z</maven.build.timestamp.format>
 
         <maven.test.argLine>--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED  --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util.stream=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED</maven.test.argLine>
+
+        <!-- These were added because gmaven was too old of a dependency to use, and we had to define where to find the tomcat goodies-->
+        <tomcat.archive.url>https://example.com/path/to/tomcat.zip</tomcat.archive.url>
+        <tomcat.archive.filename>tomcat.zip</tomcat.archive.filename>
+        <tomcat.archive.checksum>abc123</tomcat.archive.checksum>
     </properties>
 
     <reporting>

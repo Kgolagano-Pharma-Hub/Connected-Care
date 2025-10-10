@@ -64,11 +64,11 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
-        <plugins> 
+        <plugins>
             <plugin>
-                <groupId>org.codehaus.gmaven</groupId>
-                <artifactId>groovy-maven-plugin</artifactId>
-                <version>2.1</version>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>3.0.2</version>
                 <executions>
                     <execution>
                         <id>cm-tomcat-distr</id>
@@ -76,34 +76,96 @@
                         <goals>
                             <goal>execute</goal>
                         </goals>
-                        <configuration> 
-                            <classpathScope>runtime</classpathScope>
-                            <source><![CDATA[
-                                File sourceFile = org.cmdbuild.utils.io.CmIoUtils.fetchFileWithCache("${tomcat.archive.checksum}","${tomcat.archive.url}");
-                                File targetDir = new File(project.properties['project.build.directory'], "classes/org/cmdbuild/utils/tomcatmanager");
-                                File targetFile = new File(targetDir, "${tomcat.archive.filename}");
-                                targetFile << sourceFile.bytes;
-                                ]]></source>
+                        <configuration>
+                            <scripts>
+                                <script><![CDATA[
+                                    import java.nio.file.*
 
+                                    def tomcatPath = Paths.get("C:/Users/abelt/Documents/dev/resources/tomcat/apache-tomcat-9.0.109.zip")
+                                    def buildDir = Paths.get(project.build.directory, "classes/org/cmdbuild/utils/tomcatmanager")
+
+                                    Files.createDirectories(buildDir)
+
+                                    def targetFile = buildDir.resolve(tomcatPath.getFileName())
+                                    Files.copy(tomcatPath, targetFile, StandardCopyOption.REPLACE_EXISTING)
+
+                                    log.info("Copied Tomcat archive from ${tomcatPath} to ${targetFile}")
+
+                                ]]></script>
+
+
+                                <!-- This script was supposed to work when tomcat isn't installed on the machine that is running this.-->
+
+<!--                                <script><![CDATA[-->
+<!--                        import org.cmdbuild.utils.io.CmIoUtils-->
+<!--                        import java.io.File-->
+
+<!--                        def checksum = project.properties['tomcat.archive.checksum']-->
+<!--                        def url = project.properties['tomcat.archive.url']-->
+<!--                        def filename = project.properties['tomcat.archive.filename']-->
+<!--                        def buildDir = new File(project.properties['project.build.directory'])-->
+<!--                        def targetDir = new File(buildDir, "classes/org/cmdbuild/utils/tomcatmanager")-->
+
+<!--                        if (!targetDir.exists()) {-->
+<!--                            targetDir.mkdirs()-->
+<!--                        }-->
+
+<!--                        def sourceFile = CmIoUtils.fetchFileWithCache(checksum, url)-->
+<!--                        def targetFile = new File(targetDir, filename)-->
+
+<!--                        targetFile.bytes = sourceFile.bytes-->
+<!--                        log.info("Copied Tomcat archive to: ${targetFile.absolutePath}")-->
+<!--                    ]]></script>-->
+                            </scripts>
+                            <!-- Only to be used if you chose to use the online version of tomcat-->
+<!--                            <classpathScope>runtime</classpathScope>-->
                         </configuration>
-                    </execution>  
+                    </execution>
                 </executions>
-                <dependencies>
-                    <!--<dependency>-->
-                    <dependency>
-                        <groupId>com.google.guava</groupId>
-                        <artifactId>guava</artifactId>
-                        <version>23.0</version>
-                    </dependency>
-                        
-                    <!--</dependency>-->
-                    <!--                    <dependency>
-                        <groupId>${project.groupId}</groupId>
-                        <artifactId>cmdbuild-utils-io</artifactId>
-                        <version>${project.version}</version>
-                    </dependency>                    -->
-                </dependencies>
+
             </plugin>
+
+
+            <!-- This was commented because of the gmaven old timer dependency-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.codehaus.gmaven</groupId>-->
+            <!--                <artifactId>groovy-maven-plugin</artifactId>-->
+            <!--                <version>2.1</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <id>cm-tomcat-distr</id>-->
+            <!--                        <phase>process-resources</phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>execute</goal>-->
+            <!--                        </goals>-->
+            <!--                        <configuration>-->
+            <!--                            <classpathScope>runtime</classpathScope>-->
+            <!--                            <source><![CDATA[-->
+            <!--                                File sourceFile = org.cmdbuild.utils.io.CmIoUtils.fetchFileWithCache("${tomcat.archive.checksum}","${tomcat.archive.url}");-->
+            <!--                                File targetDir = new File(project.properties['project.build.directory'], "classes/org/cmdbuild/utils/tomcatmanager");-->
+            <!--                                File targetFile = new File(targetDir, "${tomcat.archive.filename}");-->
+            <!--                                targetFile << sourceFile.bytes;-->
+            <!--                                ]]></source>-->
+
+            <!--                        </configuration>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--                <dependencies>-->
+            <!--                    &lt;!&ndash;<dependency>&ndash;&gt;-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>com.google.guava</groupId>-->
+            <!--                        <artifactId>guava</artifactId>-->
+            <!--                        <version>23.0</version>-->
+            <!--                    </dependency>-->
+            <!--                        -->
+            <!--                    &lt;!&ndash;</dependency>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                    <dependency>-->
+            <!--                        <groupId>${project.groupId}</groupId>-->
+            <!--                        <artifactId>cmdbuild-utils-io</artifactId>-->
+            <!--                        <version>${project.version}</version>-->
+            <!--                    </dependency>                    &ndash;&gt;-->
+            <!--                </dependencies>-->
+            <!--            </plugin>-->
         </plugins>
     </build>
 </project>

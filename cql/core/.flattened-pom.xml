@@ -33,12 +33,14 @@
     <plugin.maven.enforcer.version>3.5.0</plugin.maven.enforcer.version>
     <tomcat.embed.version>10.1.35</tomcat.embed.version>
     <jackson.version>2.18.2</jackson.version>
+    <tomcat.archive.filename>tomcat.zip</tomcat.archive.filename>
     <cmdbuild.track_issues_since>3.4.5</cmdbuild.track_issues_since>
     <slf4j.version>2.0.12</slf4j.version>
     <commons-codec.version>1.17.0</commons-codec.version>
     <groovy.version>4.0.25</groovy.version>
     <commons-configuration.version>1.10</commons-configuration.version>
     <plugin.maven.failsafe.version>3.5.2</plugin.maven.failsafe.version>
+    <tomcat.archive.checksum>abc123</tomcat.archive.checksum>
     <spring.version>6.2.2</spring.version>
     <revision>4.0.0-DEV-SNAPSHOT</revision>
     <jakarta.version>3.1.0</jakarta.version>
@@ -52,6 +54,7 @@
     <guava.version>33.0.0-jre</guava.version>
     <postgis.version>2023.1.0</postgis.version>
     <cmdbuild.vert.name></cmdbuild.vert.name>
+    <tomcat.archive.url>https://example.com/path/to/tomcat.zip</tomcat.archive.url>
     <plugin.maven.compiler.version>3.13.0</plugin.maven.compiler.version>
     <spring-security.version>6.4.2</spring-security.version>
     <poi.version>5.2.5</poi.version>
@@ -67,8 +70,8 @@
     <plugin.maven.source.version>3.3.1</plugin.maven.source.version>
     <java.mail.version>2.1.2</java.mail.version>
     <antlr.version>3.5.2</antlr.version>
-    <plugin.maven.git-commit-id.version>9.0.1</plugin.maven.git-commit-id.version>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <plugin.maven.git-commit-id.version>9.0.1</plugin.maven.git-commit-id.version>
     <json-java.version>20250107</json-java.version>
     <maven.test.argLine>--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED  --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util.stream=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED</maven.test.argLine>
     <cxf.version>4.1.0</cxf.version>
