@@ -65,6 +65,7 @@
         <module>cli</module>
 
         <module>ui</module>
+        <module>cmdbuild-ui-react</module>
 
         <module>cmdbuild</module>
 
