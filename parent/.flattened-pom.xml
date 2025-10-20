@@ -16,13 +16,16 @@
   <properties>
     <tomcat.embed.version>10.1.35</tomcat.embed.version>
     <jackson.version>2.18.2</jackson.version>
+    <tomcat.archive.filename>tomcat.zip</tomcat.archive.filename>
     <slf4j.version>2.0.12</slf4j.version>
     <commons-codec.version>1.17.0</commons-codec.version>
     <commons-configuration.version>1.10</commons-configuration.version>
     <plugin.maven.failsafe.version>3.5.2</plugin.maven.failsafe.version>
+    <tomcat.archive.checksum>abc123</tomcat.archive.checksum>
     <jakarta.version>3.1.0</jakarta.version>
     <plugin.maven.surefire.version>3.5.2</plugin.maven.surefire.version>
     <axis.version>1.4</axis.version>
+    <tomcat.archive.url>https://example.com/path/to/tomcat.zip</tomcat.archive.url>
     <spring-security.version>6.4.2</spring-security.version>
     <poi.version>5.2.5</poi.version>
     <maven.build.timestamp.format>yyyy-MMM-dd HH:mm z</maven.build.timestamp.format>
@@ -203,16 +206,6 @@
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
         <version>1.5.3</version>
-      </dependency>
-      <dependency>
-        <groupId>com.onelogin</groupId>
-        <artifactId>java-saml</artifactId>
-        <version>2.9.0</version>
-      </dependency>
-      <dependency>
-        <groupId>com.onelogin</groupId>
-        <artifactId>java-saml-core</artifactId>
-        <version>2.9.0</version>
       </dependency>
       <dependency>
         <groupId>com.google.zxing</groupId>

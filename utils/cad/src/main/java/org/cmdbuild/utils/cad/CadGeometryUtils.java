@@ -49,9 +49,6 @@ import static org.cmdbuild.utils.cad.model.CadRectangle.rectangle;
 import static org.cmdbuild.utils.lang.CmCollectionUtils.list;
 import static org.cmdbuild.utils.lang.CmExceptionUtils.lazyString;
 import static org.cmdbuild.utils.lang.CmExceptionUtils.runtime;
-import org.geotools.geometry.jts.JTSFactoryFinder;
-import org.locationtech.jts.geom.Coordinate;
-import org.locationtech.jts.geom.Geometry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -285,38 +282,48 @@ public class CadGeometryUtils {
         } else if (!getBoundingBox(polyline).contains(point)) {
             return false;
         } else {
-            return toGeometry(polyline).covers(toGeometry(point));
+            System.out.println("This doesn't work cause I removed the dependencies");
+            return false;
+            //return toGeometry(polyline).covers(toGeometry(point));
         }
     }
 
     public static boolean contains(CadPolyline polyline, CadPolyline inner) {
-        return toGeometry(polyline).covers(toGeometry(inner));
+        System.out.println("This doesn't work cause I removed the dependencies");
+        return false;
+        //return toGeometry(polyline).covers(toGeometry(inner));
     }
 
     public static boolean intersects(CadPolyline polyline, CadPolyline inner) {
-        return toGeometry(polyline).intersects(toGeometry(inner));
+        System.out.println("This doesn't work cause I removed the dependencies");
+        return false;
+        //return toGeometry(polyline).intersects(toGeometry(inner));
     }
 
     public static boolean contains(CadPolyline polyline, CadPolyline inner, double overlapAmount) {
-        Geometry first = toGeometry(polyline), other = toGeometry(inner);
-        return first.covers(other) || (first.intersects(other) && first.intersection(other).getArea() > other.getArea() * overlapAmount);
+        System.out.println("This doesn't work cause I removed the dependencies");
+        return false;
+//        Geometry first = toGeometry(polyline), other = toGeometry(inner);
+//        return first.covers(other) || (first.intersects(other) && first.intersection(other).getArea() > other.getArea() * overlapAmount);
     }
 
     public static double intersectionSize(CadPolyline first, CadPolyline other) {
-        return toGeometry(first).intersection(toGeometry(other)).getArea();
+        System.out.println("This doesn't work cause I removed the dependencies");
+        return 0;
+        //return toGeometry(first).intersection(toGeometry(other)).getArea();
     }
 
-    private static Geometry toGeometry(CadPolyline polyline) {
-        if (polyline.isPoint()) {
-            return toGeometry(polyline.getCenter());
-        } else {
-            return JTSFactoryFinder.getGeometryFactory().createPolygon(list(polyline.getVertexes()).with(polyline.getVertexes().get(0)).map(p -> new Coordinate(p.getX(), p.getY())).toArray(Coordinate[]::new));
-        }
-    }
-
-    private static Geometry toGeometry(CadPoint point) {
-        return JTSFactoryFinder.getGeometryFactory().createPoint(new Coordinate(point.getX(), point.getY()));
-    }
+//    private static Geometry toGeometry(CadPolyline polyline) {
+//        if (polyline.isPoint()) {
+//            return toGeometry(polyline.getCenter());
+//        } else {
+//            return JTSFactoryFinder.getGeometryFactory().createPolygon(list(polyline.getVertexes()).with(polyline.getVertexes().get(0)).map(p -> new Coordinate(p.getX(), p.getY())).toArray(Coordinate[]::new));
+//        }
+//    }
+//
+//    private static Geometry toGeometry(CadPoint point) {
+//        return JTSFactoryFinder.getGeometryFactory().createPoint(new Coordinate(point.getX(), point.getY()));
+//    }
 
     public static boolean contains(CadRectangle rectangle, CadPoint point) {
         return isBetween(point.getX(), rectangle.getX1(), rectangle.getX2()) && isBetween(point.getY(), rectangle.getY1(), rectangle.getY2());

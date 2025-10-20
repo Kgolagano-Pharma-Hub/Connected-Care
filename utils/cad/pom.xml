@@ -47,37 +47,38 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-main</artifactId>
-            <version>${geotools.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-referencing</artifactId>
-            <version>${geotools.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax</groupId>
-                    <artifactId>javaee-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-epsg-hsql</artifactId>
-            <version>${geotools.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-epsg-extension</artifactId>
-            <version>${geotools.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-shapefile</artifactId>
-            <version>${geotools.version}</version>
-        </dependency>
+<!--        Stubbed these out as well-->
+<!--        <dependency>-->
+<!--            <groupId>org.geotools</groupId>-->
+<!--            <artifactId>gt-main</artifactId>-->
+<!--            <version>${geotools.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.geotools</groupId>-->
+<!--            <artifactId>gt-referencing</artifactId>-->
+<!--            <version>${geotools.version}</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>javax</groupId>-->
+<!--                    <artifactId>javaee-api</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.geotools</groupId>-->
+<!--            <artifactId>gt-epsg-hsql</artifactId>-->
+<!--            <version>${geotools.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.geotools</groupId>-->
+<!--            <artifactId>gt-epsg-extension</artifactId>-->
+<!--            <version>${geotools.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.geotools</groupId>-->
+<!--            <artifactId>gt-shapefile</artifactId>-->
+<!--            <version>${geotools.version}</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>

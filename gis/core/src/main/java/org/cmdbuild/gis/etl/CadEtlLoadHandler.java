@@ -341,9 +341,9 @@ public class CadEtlLoadHandler implements EtlLoadHandler {
                     logger.info("build shapefile ( filter layers =< {} > )", config.includeLayers.isEmpty() ? "NO FILTER" : config.includeLayers);
                     DxfToShapefileHelper helper = DxfToShapefileHelper.withDocument(document)
                             .withEntityFilter(filter)
-                            .withTargetReferenceSystem(config.targetReferenceSystem)
-                            .withTransformationRules(isBlank(config.transformationRules) ? null : parseTransformationRules(config.transformationRules))
-                            .withEnableAngleDisplacementProcessing(enableAngleDisplacementProcessing)
+                            //.withTargetReferenceSystem(config.targetReferenceSystem)
+                            //.withTransformationRules(isBlank(config.transformationRules) ? null : parseTransformationRules(config.transformationRules))
+                            //.withEnableAngleDisplacementProcessing(enableAngleDisplacementProcessing)
                             .build();
                     BigByteArray shapeFile = helper.toShapeFile();
                     logger.info("load shapefile on geoserver, shapefile element count = {} location = {}", helper.getShapeFileElementCount(), helper.getShapeFileLocation());

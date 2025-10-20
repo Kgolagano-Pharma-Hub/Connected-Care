@@ -6,7 +6,9 @@ out/
 
 # Build output
 /target/
-
+target/
+*.jar
+*.git.properties
 # Logs
 *.log
 
