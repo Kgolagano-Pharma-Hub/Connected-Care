@@ -46,23 +46,6 @@
                     </execution>
                 </executions>
             </plugin>
-<!-- Apparenlty this isn't needed because It belongs in the final WAR module that
- CONSUMES your frontend build. And since this is what is actually being build,
- it doesn't belong here-->
-<!--            <plugin>-->
-<!--                <artifactId>maven-war-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <packagingExcludes>WEB-INF/lib/*</packagingExcludes>-->
-<!--                    <failOnMissingWebXml>false</failOnMissingWebXml>-->
-<!--                    <webResources>-->
-<!--                        <resource>-->
-<!--                            <directory>${project.basedir}/cmdbuild-ui-react/dist</directory>-->
-<!--                            <targetPath>ui_dev</targetPath>-->
-<!--                        </resource>-->
-<!--                    </webResources>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-
         </plugins>
     </build>
 </project>
