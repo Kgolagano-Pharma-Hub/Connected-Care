@@ -244,7 +244,9 @@
                         <configuration>
                             <scripts>
                                 <script>
-                                    File file = new File("${project.build.directory}/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/config/default_config.properties")
+                                    def buildDir = new File(project.build.directory)
+                                    def relativePath = "${project.build.finalName}/WEB-INF/classes/org/cmdbuild/config/default_config.properties"
+                                    File file = new File(buildDir, relativePath)
                                     file.parentFile.mkdirs()
                                     file.append '\n'
                                     System.properties.each{ k, v ->  if ( k.startsWith('org.cmdbuild.build.config.') ) { file.append k.replaceFirst('org.cmdbuild.build.config.','org.cmdbuild.') + '=' + v + '\n' }}
@@ -262,7 +264,9 @@
                         <configuration>
                             <scripts>
                                 <script>
-                                    File file = new File('/${project.build.directory}/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/version.properties/')
+                                    def buildDir = new File(project.build.directory)
+                                    def relativePath = "${project.build.finalName}/WEB-INF/classes/org/cmdbuild/version.properties/"
+                                    File file = new File(buildDir, relativePath)
                                     file.parentFile.mkdirs()
                                     file.append '\n'
                                     file.append 'org.cmdbuild.version=${revision}'
@@ -274,28 +278,35 @@
                                 </script>
                             </scripts>
                         </configuration>
-                    </execution>  
-                    <execution>
-                        <id>cm-git-issues</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>execute</goal>
-                        </goals>
-                        <configuration>
-                            <scripts>
-                                <script>
-                                    def sout = new StringBuilder(), serr = new StringBuilder()
-                                    def proc = ["/bin/bash","${project.basedir}/utils/export_git_issues.sh"].execute()
-                                    proc.consumeProcessOutput(sout, serr)
-                                    proc.waitFor()
-
-                                    File file = new File('/${project.build.directory}/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/fixed_issues_list.txt/')
-                                    file.parentFile.mkdirs()
-                                    file.append sout
-                                </script>
-                            </scripts>
-                        </configuration>
                     </execution>
+                    <!-- I commented this out because this is not mission critical. But its a nice to have that would be helpful in the long term future-->
+<!--                    <execution>-->
+<!--                        <id>cm-git-issues</id>-->
+<!--                        <phase>process-resources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>execute</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <scripts>-->
+<!--                                <script>-->
+<!--                                    def buildDir = new File(project.build.directory)-->
+<!--                                    def relativePath = "/utils/export_git_issues.sh"-->
+<!--                                    File source = new File(buildDir, relativePath)-->
+<!--                                    def proc = ["/bin/bash",source].execute()-->
+
+<!--                                    def sout = new StringBuilder(), serr = new StringBuilder()-->
+<!--                                    proc.consumeProcessOutput(sout, serr)-->
+<!--                                    proc.waitFor()-->
+
+<!--                                    def buildDir2 = new File(project.build.directory)-->
+<!--                                    def relativePath2 = "${project.build.finalName}/WEB-INF/classes/org/cmdbuild/fixed_issues_list.txt/"-->
+<!--                                    File file = new File(buildDir2, relativePath2)-->
+<!--                                    file.parentFile.mkdirs()-->
+<!--                                    file.append sout-->
+<!--                                </script>-->
+<!--                            </scripts>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
                     <execution>
                         <id>cm-system-libs-list</id>
                         <phase>process-resources</phase>
@@ -305,7 +316,9 @@
                         <configuration>
                             <scripts>
                                 <script>
-                                    File source = new File('/${project.build.directory}/${project.build.finalName}/WEB-INF/lib/systemlibs.list.raw/')
+                                    def buildDir = new File(project.build.directory)
+                                    def relativePath = "${project.build.finalName}/WEB-INF/lib/systemlibs.list.raw/"
+                                    File source = new File(buildDir, relativePath)
                                     def list = []
                                     println "processing libs"
                                     source.eachLine { String line ->
@@ -315,7 +328,9 @@
                                     }
                                     }
                                     source.delete()
-                                    File file = new File('/${project.build.directory}/${project.build.finalName}/WEB-INF/lib/systemlibs.list/');
+                                    def buildDir2 = new File(project.build.directory)
+                                    def relativePath2 = "${project.build.finalName}/WEB-INF/lib/systemlibs.list/"
+                                    File file = new File(buildDir2, relativePath2);
                                     list.sort()
                                     list.each { line ->
                                     file.append line
@@ -327,27 +342,28 @@
                     </execution>
                 </executions> 
             </plugin>
-            <plugin>  
-                <groupId>org.codehaus.mojo</groupId>  
-                <artifactId>exec-maven-plugin</artifactId>  
-                <version>1.4.0</version>  
-                <executions>  
-                    <execution>  
-                        <id>run-cli-packager</id>
-                        <phase>package</phase>  
-                        <goals>  
-                            <goal>java</goal>  
-                        </goals>  
-                        <configuration>  
-                            <mainClass>org.cmdbuild.utils.cli.packager.CliPackagerUtils</mainClass>  
-                            <arguments>  
-                                <argument>${project.build.directory}/${project.build.finalName}.war</argument>  
-                                <argument>${project.build.directory}/cmdbuild.sh</argument>  
-                            </arguments>  
-                        </configuration>  
-                    </execution>    
-                </executions>
-            </plugin> 
+            <!-- We don't need this plugin to generate a standalone .sh script-->
+<!--            <plugin>  -->
+<!--                <groupId>org.codehaus.mojo</groupId>  -->
+<!--                <artifactId>exec-maven-plugin</artifactId>  -->
+<!--                <version>1.4.0</version>  -->
+<!--                <executions>  -->
+<!--                    <execution>  -->
+<!--                        <id>run-cli-packager</id>-->
+<!--                        <phase>package</phase>  -->
+<!--                        <goals>  -->
+<!--                            <goal>java</goal>  -->
+<!--                        </goals>  -->
+<!--                        <configuration>  -->
+<!--                            <mainClass>org.cmdbuild.utils.cli.packager.CliPackagerUtils</mainClass>  -->
+<!--                            <arguments>  -->
+<!--                                <argument>${project.build.directory}/${project.build.finalName}.war</argument>  -->
+<!--                                <argument>${project.build.directory}/cmdbuild.sh</argument>  -->
+<!--                            </arguments>  -->
+<!--                        </configuration>  -->
+<!--                    </execution>    -->
+<!--                </executions>-->
+<!--            </plugin> -->
             <plugin>
                 <groupId>org.basepom.maven</groupId>
                 <artifactId>duplicate-finder-maven-plugin</artifactId>
